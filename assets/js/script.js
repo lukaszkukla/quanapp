@@ -25,11 +25,11 @@ fetch(url) // fetch url from opentdb.com
     .then(function (data) {
         console.log(data.results); // display fetched data
         quiz.totalQuestions = data.results.length; // total number of question fetched from opentdb.com
-        console.log(totalQuestions); // display
+        console.log(quiz.totalQuestions); // display
         quiz.questionNumber = 0; // starting question / questions we are on
         console.log(quiz.questionNumber);
         quiz.array = data.results;
-        quiz.array.array.forEach(element => {
+        quiz.array.forEach(function(element) {
             console.log(element);
         });
     })
