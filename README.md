@@ -16,7 +16,6 @@ This is a second project on my journey with [code institute](https://codeinstitu
 * [ux](#ux "ux")
     * [user goals](#user-goals "user goals")
     * [user stories](#user-stories "user stories")
-    * [site owner goals](#site-owner-goals "site owner goals")
     * [user requirements and expectations](#user-requirements-and-expectations "user requirements and expectations")
          * [requirements](#requirements "requirements")
          * [expectations](#expectations "expectations")
@@ -28,14 +27,7 @@ This is a second project on my journey with [code institute](https://codeinstitu
     * [wireframes](#wireframes "wireframes")
     * [features](#features "features")
         * [existing features](#existing-features "existing features")
-            * [navigation bar](#navigation-bar "navigation bar")
-            * [home page](#home-page "home page")
-            * [ethos section](#ethos-section "ethos section")
-            * [portfolio section and page](#portfolio-section-and-page "portfolio section and page")
-            * [about section](#about-section "about section")
-            * [testimonials section](#testimonials-section "testimonials section")
-            * [contact section](#contact-section "contact section")
-            * [footer](#footer "footer")
+            * [main game](#main-game "main game")           
         * [future developments](#future-developments "future developments")
     * [technologies used](#technologies-used "technologies used")
         * [languages](#languages "languages")
@@ -46,6 +38,7 @@ This is a second project on my journey with [code institute](https://codeinstitu
         * [during testing](#during-testing "during teting") 
         * [unfixed bugs](#unfixed-bugs "unfixed bugs")        
     * [deployment](#deployment "deployment")
+    * [cloning repository](#cloning-repository "cloning repository")
     * [credits](#credits "credits")
     
 # ux
@@ -310,7 +303,7 @@ The project was deployed on GitHub pages after initial commits using following p
 * Now the website is now live on https://lukaszkukla.github.io/qubartstudios/
 * If any changes are required, they can be done, committed and pushed to GitHub and the changes will be updated
 
-# cloning the repository
+# cloning repository
 The project can be copied or cloned using following steps
 
 * log into Github and locate the [repository](https://github.com/lukaszkukla/quanapp "quanapp repository")
@@ -329,7 +322,6 @@ The project can be copied or cloned using following steps
         * choose location you want to clone the repository to
         * paste and run copied command
 
-
 \
 &nbsp;
 [back to top](#table-of-contents)
@@ -345,7 +337,7 @@ The project can be copied or cloned using following steps
 
 * peer community on [code institute](codeinstitute.com) slack channel
 
-* kasia_ci from [code institute](codeinstitute.com) - for "standing up" to the task and listening to the whole class weekly and patiently advising on best course of action
+* kasia_ci from [code institute](codeinstitute.com) - for keeping up the spirit and leading weekly standups
 \
 &nbsp;
 [back to top](#table-of-contents)
