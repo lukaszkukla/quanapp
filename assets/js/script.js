@@ -45,7 +45,7 @@ function createQuestion() {
     if(quiz.questionNumber > quiz.totalQuestions) {
         gameOver();
     } else {
-        console.log(`you are on ${quiz.questionNumber}`);        
+        console.log(`question # ${quiz.questionNumber} out of ${quiz.totalQuestions}`)        
     }
 }
 
