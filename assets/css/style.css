@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200;1,400&display=swap');
+
+/* variables */
+:root {    
+    --white: #fff;
+    --black: #000;
+}
+
+/* global styles and resets */
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* font reset 1rem = 10px */
+html,
+body {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+/* default font size 1.6rem = 16px */
+body {
+    font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+}
