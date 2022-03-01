@@ -33,3 +33,19 @@ fetch(url) // fetch url from opentdb.com
             console.log(element);
         });
     })
+
+function createQuestion() {
+
+}
+
+function shuffleAnswers() {
+
+}
+
+function gameOver() {
+    
+}
+
+function restartQuiz() {
+
+}
