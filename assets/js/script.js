@@ -17,7 +17,7 @@
 const quiz = {}; // main game object
 const url = 'https://opentdb.com/api.php?amount=3';
 const message = document.querySelector('.message');
-const questoin = document.querySelector('.question');
+const question = document.querySelector('.question');
 const next = document.querySelector('.next');
 const restart = document.querySelector('.restart');
 
@@ -47,12 +47,16 @@ function createQuestion() {
     } else {
         console.log(`question # ${quiz.questionNumber + 1} out of ${quiz.totalQuestions}`); // test log to console 
         let answerOptions = [quiz.array[quiz.questionNumber].correct_answer, ...quiz.array[quiz.questionNumber].incorrect_answers]; // combine correct and incorrect answers into one array
-        console.log(answerOptions); // test log to console        
+        console.log(answerOptions); // test log to console
+        const createDiv = document.createElement('div');
+        createDiv.textContent = quiz.array[quiz.questionNumber].question;
+        question.appendChild(createDiv);   
     }
 }
 
 function shuffleAnswers() {
-
+    let shuffleAnswers = answerOptions.sort(() => Math.random - 0.5); // randomise answer order
+    console.log(shuffleAnswers); // test log to console     
 }
 
 function gameOver() {
