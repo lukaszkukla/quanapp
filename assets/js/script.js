@@ -27,14 +27,14 @@ fetch(url) // fetch url from opentdb.com
         return response.json(); // return data in json format    
     })
     .then(function (data) {
-        console.log(data.results); // display fetched data
+        console.log(data.results); // test log to console 
         quiz.totalQuestions = data.results.length; // total number of question fetched from opentdb.com
-        console.log(quiz.totalQuestions); // display
+        console.log(quiz.totalQuestions); // test log to console 
         quiz.questionNumber = 0; // starting question / questions we are on
-        console.log(quiz.questionNumber);
+        console.log(quiz.questionNumber); // test log to console 
         quiz.array = data.results;
         quiz.array.forEach(function(element) {
-            console.log(element);
+            console.log(element); // test log to console 
         });
 
         createQuestion();
@@ -45,7 +45,9 @@ function createQuestion() {
     if(quiz.questionNumber + 1 > quiz.totalQuestions) {
         gameOver();
     } else {
-        console.log(`question # ${quiz.questionNumber + 1}  out of ${quiz.totalQuestions}`)        
+        console.log(`question # ${quiz.questionNumber + 1} out of ${quiz.totalQuestions}`); // test log to console 
+        let answerOptions = [quiz.array[quiz.questionNumber].correct_answer, ...quiz.array[quiz.questionNumber].incorrect_answers]; // combine correct and incorrect answers into one array
+        console.log(answerOptions); // test log to console        
     }
 }
 
