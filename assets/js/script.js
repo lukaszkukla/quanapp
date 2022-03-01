@@ -42,10 +42,10 @@ fetch(url) // fetch url from opentdb.com
 
 // determine behaviour based on the current question number
 function createQuestion() {
-    if(quiz.questionNumber > quiz.totalQuestions) {
+    if(quiz.questionNumber + 1 > quiz.totalQuestions) {
         gameOver();
     } else {
-        console.log(`question # ${quiz.questionNumber} out of ${quiz.totalQuestions}`)        
+        console.log(`question # ${quiz.questionNumber + 1}  out of ${quiz.totalQuestions}`)        
     }
 }
 
