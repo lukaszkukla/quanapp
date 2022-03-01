@@ -45,11 +45,12 @@ function createQuestion() {
     if(quiz.questionNumber + 1 > quiz.totalQuestions) {
         gameOver();
     } else {
-        console.log(`question # ${quiz.questionNumber + 1} out of ${quiz.totalQuestions}`); // test log to console 
-        let answerOptions = [quiz.array[quiz.questionNumber].correct_answer, ...quiz.array[quiz.questionNumber].incorrect_answers]; // combine correct and incorrect answers into one array
+        console.log(`question # ${quiz.questionNumber + 1} out of ${quiz.totalQuestions}`); // test log to console
+        let q = quiz.array[quiz.questionNumber];
+        let answerOptions = [q.correct_answer, ...q.incorrect_answers]; // combine correct and incorrect answers into one array
         console.log(answerOptions); // test log to console
         const createDiv = document.createElement('div');
-        createDiv.textContent = quiz.array[quiz.questionNumber].question;
+        createDiv.textContent = q.question;
         question.appendChild(createDiv);   
     }
 }
