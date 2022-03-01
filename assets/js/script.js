@@ -13,7 +13,7 @@
 11. show restart button
 
 */
-
+const quiz = {}; // main game object
 const url = 'https://opentdb.com/api.php?amount=3';
 
 
