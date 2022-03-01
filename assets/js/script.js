@@ -18,6 +18,7 @@ const quiz = {}; // main game object
 const url = 'https://opentdb.com/api.php?amount=3';
 const message = document.querySelector('.message');
 const question = document.querySelector('.question');
+const answers = document.querySelector('.answers');
 const next = document.querySelector('.next');
 const restart = document.querySelector('.restart');
 
@@ -46,18 +47,32 @@ function createQuestion() {
         gameOver();
     } else {
         console.log(`question # ${quiz.questionNumber + 1} out of ${quiz.totalQuestions}`); // test log to console
+        
         let q = quiz.array[quiz.questionNumber];
-        let answerOptions = [q.correct_answer, ...q.incorrect_answers]; // combine correct and incorrect answers into one array
-        console.log(answerOptions); // test log to console
-        const createDiv = document.createElement('div');
-        createDiv.textContent = q.question;
-        question.appendChild(createDiv);   
+        let answerOptions = [q.correct_answer, ...q.incorrect_answers]; // combine correct and incorrect answers into one array        
+        let shuffleAnswers = answerOptions.sort(() => Math.random - 0.5); // randomise answer order
+        
+        console.log(shuffleAnswers); // test log to console     
+        
+        // create div with current question and append to DOM
+        const createQuestion = document.createElement('div');
+        createQuestion.textContent = q.question;
+        question.appendChild(createQuestion);
+        
+        // display all avilable answer options
+        answerOptions.forEach(function(element){
+            console.log(element); //test log to console
+
+            // create div for each answer option and append to document
+            const createAnswers = document.createElement('div');
+            createAnswers.textContent = element;
+            answers.appendChild(createAnswers);
+        })
     }
 }
 
 function shuffleAnswers() {
-    let shuffleAnswers = answerOptions.sort(() => Math.random - 0.5); // randomise answer order
-    console.log(shuffleAnswers); // test log to console     
+    
 }
 
 function gameOver() {
