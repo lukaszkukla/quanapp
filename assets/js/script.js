@@ -18,10 +18,18 @@ const url = 'https://opentdb.com/api.php?amount=3';
 
 
 fetch(url) // fetch url from opentdb.com
-.then (function (response) {
-    return response.json(); // return data in json format
-    console.log('success');
-})
-.then (function (data) {
-    console.log(data.results); // display fetched data
-})
+    .then(function (response) {
+        console.log('success');
+        return response.json(); // return data in json format    
+    })
+    .then(function (data) {
+        console.log(data.results); // display fetched data
+        quiz.totalQuestions = data.results.length; // total number of question fetched from opentdb.com
+        console.log(totalQuestions); // display
+        quiz.questionNumber = 0; // starting question / questions we are on
+        console.log(quiz.questionNumber);
+        quiz.array = data.results;
+        quiz.array.array.forEach(element => {
+            console.log(element);
+        });
+    })
