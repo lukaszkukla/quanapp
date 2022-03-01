@@ -1,4 +1,4 @@
-/* 
+/** 
 
 1. fetch question bank from url
 2. return data in json format
@@ -12,15 +12,14 @@
 10. show total score on last question
 11. show restart button
 
-*/
+ */
+
 const quiz = {}; // main game object
 const url = 'https://opentdb.com/api.php?amount=3';
 const message = document.querySelector('.message');
-
-
-
-
-
+const questoin = document.querySelector('.question');
+const next = document.querySelector('.next');
+const restart = document.querySelector('.restart');
 
 fetch(url) // fetch url from opentdb.com
     .then(function (response) {
@@ -37,14 +36,17 @@ fetch(url) // fetch url from opentdb.com
         quiz.array.forEach(function(element) {
             console.log(element);
         });
+
+        createQuestion();
     })
 
 // determine behaviour based on the current question number
 function createQuestion() {
     if(quiz.questionNumber > quiz.totalQuestions) {
         gameOver();
+    } else {
+        console.log(`you are on ${quiz.questionNumber}`);        
     }
-
 }
 
 function shuffleAnswers() {
