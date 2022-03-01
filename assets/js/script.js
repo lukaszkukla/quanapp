@@ -64,11 +64,25 @@ function createQuestion() {
             console.log(element); //test log to console
 
             // create div for each answer option and append to document
-            const createAnswers = document.createElement('div');
+            let createAnswers = document.createElement('div');
+            createAnswers.answer = q.correct_answer;
             createAnswers.textContent = element;
             answers.appendChild(createAnswers);
+            createAnswers.addEventListener('click', nextQuestion);
         })
     }
+}
+
+// allow to select one of the available answers
+function nextQuestion(element) {
+    let selectedAnswer = element.target;
+    if(selectedAnswer.textContent === selectedAnswer.answer) {
+        console.log('correct answer selected');
+    } else {
+        console.log('wrong answer selected');
+    }
+    console.log(selectedAnswer.textContent);
+
 }
 
 function shuffleAnswers() {
@@ -80,5 +94,5 @@ function gameOver() {
 }
 
 function restartQuiz() {
-
+    
 }
