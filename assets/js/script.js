@@ -15,6 +15,11 @@
 */
 const quiz = {}; // main game object
 const url = 'https://opentdb.com/api.php?amount=3';
+const message = document.querySelector('.message');
+
+
+
+
 
 
 fetch(url) // fetch url from opentdb.com
@@ -34,7 +39,11 @@ fetch(url) // fetch url from opentdb.com
         });
     })
 
+// determine behaviour based on the current question number
 function createQuestion() {
+    if(quiz.questionNumber > quiz.totalQuestions) {
+        gameOver();
+    }
 
 }
 
@@ -43,7 +52,7 @@ function shuffleAnswers() {
 }
 
 function gameOver() {
-    
+
 }
 
 function restartQuiz() {
