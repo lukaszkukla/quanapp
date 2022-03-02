@@ -59,6 +59,11 @@ function createQuestion() {
         
         // create div with current question and append to DOM
         const createQuestion = document.createElement('div');
+        
+        // clear previous question and answers
+        question.innerHTML = '';
+        answers.innerHTML = ''; 
+        
         createQuestion.textContent = q.question;
         question.appendChild(createQuestion);
         
@@ -92,6 +97,14 @@ function newQuestion(element) {
 // enables next question button
 function displayNextQuestionBtn() {
     nextQuestion.style.display = 'block';
+}
+
+
+function disableSelection() {
+    const selectedAnswer = document.querySelector('.answers');
+    selectedAnswer.forEach(function(domElement) {
+        domElement.removeEventListener('click', newQuestion);
+    })
 }
 
 function shuffleAnswers() {
