@@ -23,6 +23,7 @@ const nextQuestion = document.querySelector('.next-question');
 const restart = document.querySelector('.restart');
 
 nextQuestion.addEventListener('click', createQuestion); // advance to the next quetion
+restart.addEventListener('click', restartQuiz); // restart the quiz
 
 fetch(url) // fetch url from opentdb.com
     .then(function (response) {
@@ -46,7 +47,7 @@ fetch(url) // fetch url from opentdb.com
 // determine behaviour based on the current question number
 function createQuestion() {
     nextQuestion.style.display = 'none';
-    if(quiz.questionNumber + 1 > quiz.totalQuestions) {
+    if(quiz.questionNumber + 1 > quiz.totalQuestions) { // add 1 to questoin number so it starts from number 1 not 0
         gameOver();
     } else {
         console.log(`question # ${quiz.questionNumber + 1} out of ${quiz.totalQuestions}`); // test log to console
@@ -63,7 +64,7 @@ function createQuestion() {
         // clear previous question and answers
         question.innerHTML = '';
         answers.innerHTML = ''; 
-        
+
         createQuestion.textContent = q.question;
         question.appendChild(createQuestion);
         
@@ -112,9 +113,11 @@ function shuffleAnswers() {
 }
 
 function gameOver() {
+    question.textContent = 'game over';
+    restart.textContent = 'restart';
 
 }
 
 function restartQuiz() {
-    
+    location.reload();
 }
