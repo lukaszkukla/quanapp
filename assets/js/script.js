@@ -22,7 +22,7 @@ const answers = document.querySelector('.answers');
 const nextQuestion = document.querySelector('.next-question');
 const restart = document.querySelector('.restart');
 
-nextQuestion.addEventListener('click', createQuestion); // advance to next quetion
+nextQuestion.addEventListener('click', createQuestion); // advance to the next quetion
 
 fetch(url) // fetch url from opentdb.com
     .then(function (response) {
@@ -45,6 +45,7 @@ fetch(url) // fetch url from opentdb.com
 
 // determine behaviour based on the current question number
 function createQuestion() {
+    nextQuestion.style.display = 'none';
     if(quiz.questionNumber + 1 > quiz.totalQuestions) {
         gameOver();
     } else {
@@ -85,9 +86,13 @@ function newQuestion(element) {
     }
     console.log(selectedAnswer.textContent);
     quiz.questionNumber++; // increase question number index
+    displayNextQuestionBtn();
 }
 
-
+// enables next question button
+function displayNextQuestionBtn() {
+    nextQuestion.style.display = 'block';
+}
 
 function shuffleAnswers() {
     
