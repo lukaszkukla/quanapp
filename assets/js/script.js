@@ -19,8 +19,10 @@ const url = 'https://opentdb.com/api.php?amount=3';
 const message = document.querySelector('.message');
 const question = document.querySelector('.question');
 const answers = document.querySelector('.answers');
-const next = document.querySelector('.next');
+const nextQuestion = document.querySelector('.next-question');
 const restart = document.querySelector('.restart');
+
+nextQuestion.addEventListener('click', createQuestion); // advance to next quetion
 
 fetch(url) // fetch url from opentdb.com
     .then(function (response) {
@@ -68,13 +70,13 @@ function createQuestion() {
             createAnswers.answer = q.correct_answer;
             createAnswers.textContent = element;
             answers.appendChild(createAnswers);
-            createAnswers.addEventListener('click', nextQuestion);
+            createAnswers.addEventListener('click', newQuestion);
         })
     }
 }
 
 // allow to select one of the available answers
-function nextQuestion(element) {
+function newQuestion(element) {
     let selectedAnswer = element.target;
     if(selectedAnswer.textContent === selectedAnswer.answer) {
         console.log('correct answer selected');
@@ -82,8 +84,10 @@ function nextQuestion(element) {
         console.log('wrong answer selected');
     }
     console.log(selectedAnswer.textContent);
-
+    quiz.questionNumber++; // increase question number index
 }
+
+
 
 function shuffleAnswers() {
     
