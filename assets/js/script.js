@@ -21,6 +21,7 @@ const question = document.querySelector('.question');
 const answers = document.querySelector('.answers');
 const nextQuestion = document.querySelector('.next-question');
 const restart = document.querySelector('.restart');
+const endGame = document.querySelector('.end-game');
 
 nextQuestion.addEventListener('click', createQuestion); // advance to the next quetion
 restart.addEventListener('click', restartQuiz); // restart the quiz
@@ -35,6 +36,7 @@ fetch(url) // fetch url from opentdb.com
         quiz.totalQuestions = data.results.length; // total number of question fetched from opentdb.com
         console.log(quiz.totalQuestions); // test log to console 
         quiz.questionNumber = 0; // starting question / questions we are on
+        quiz.score = 0;
         console.log(quiz.questionNumber); // test log to console 
         quiz.array = data.results;
         quiz.array.forEach(function(element) {
@@ -47,6 +49,7 @@ fetch(url) // fetch url from opentdb.com
 // determine behaviour based on the current question number
 function createQuestion() {
     nextQuestion.style.display = 'none';
+    endGame.style.display = 'none';
     if(quiz.questionNumber + 1 > quiz.totalQuestions) { // add 1 to questoin number so it starts from number 1 not 0
         gameOver();
     } else {
@@ -89,6 +92,7 @@ function newQuestion(element) {
     let selectedAnswer = element.target;
     if(selectedAnswer.textContent === selectedAnswer.answer) {
         console.log('correct answer selected');
+        quiz.score++; // add 1 to score
     } else {
         console.log('wrong answer selected');
     }
@@ -115,9 +119,11 @@ function shuffleAnswers() {
 }
 
 function gameOver() {
+    question.innerHTML = '';
+    answers.innerHTML = ''; 
+    message.textContent = `you answered ${quiz.score} out of ${quiz.totalQuestions} questions correctly`;
     question.textContent = 'game over';
     restart.textContent = 'restart';
-
 }
 
 function restartQuiz() {
