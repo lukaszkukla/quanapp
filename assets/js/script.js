@@ -74,6 +74,7 @@ function createQuestion() {
 
             // create div for each answer option and append to document
             let createAnswers = document.createElement('div');
+            createAnswers.classList.add('answer');
             createAnswers.answer = q.correct_answer;
             createAnswers.textContent = element;
             answers.appendChild(createAnswers);
@@ -84,6 +85,7 @@ function createQuestion() {
 
 // allow to select one of the available answers
 function newQuestion(element) {
+    disableSelection();
     let selectedAnswer = element.target;
     if(selectedAnswer.textContent === selectedAnswer.answer) {
         console.log('correct answer selected');
@@ -102,7 +104,7 @@ function displayNextQuestionBtn() {
 
 
 function disableSelection() {
-    const selectedAnswer = document.querySelector('.answers');
+    const selectedAnswer = document.querySelectorAll('.answer');
     selectedAnswer.forEach(function(domElement) {
         domElement.removeEventListener('click', newQuestion);
     })
