@@ -14,19 +14,23 @@
 
  */
 
-const quiz = {}; // main game object
-const url = 'https://opentdb.com/api.php?amount=3';
+const quiz = {
+    questionNumber: 0,
+    score: 0,
+    questionBank: []
+}; // main game object
+const APIURL = 'https://opentdb.com/api.php?amount=3';
 const message = document.querySelector('.message');
-const question = document.querySelector('.question');
-const answers = document.querySelector('.answers');
-const nextQuestion = document.querySelector('.next-question');
-const restart = document.querySelector('.restart');
-const endGame = document.querySelector('.end-game');
+const questionRef = document.querySelector('.question');
+const answersRef = document.querySelector('.answers');
+const nextQuestionRef = document.querySelector('.next-question');
+const restartRef = document.querySelector('.restart');
+const endGameRef = document.querySelector('.end-game');
 
-nextQuestion.addEventListener('click', createQuestion); // advance to the next quetion
-restart.addEventListener('click', restartQuiz); // restart the quiz
+nextQuestionRef.addEventListener('click', createQuestion); // advance to the next quetion
+restartRef.addEventListener('click', restartQuiz); // restart the quiz
 
-fetch(url) // fetch url from opentdb.com
+fetch(APIURL) // fetch url from opentdb.com
     .then(function (response) {
         console.log('success');
         return response.json(); // return data in json format    
@@ -48,8 +52,8 @@ fetch(url) // fetch url from opentdb.com
 
 // determine behaviour based on the current question number
 function createQuestion() {
-    nextQuestion.style.display = 'none';
-    endGame.style.display = 'none';
+    nextQuestionRef.style.display = 'none';
+    endGameRef.style.display = 'none';
     if(quiz.questionNumber + 1 > quiz.totalQuestions) { // add 1 to questoin number so it starts from number 1 not 0
         gameOver();
     } else {
@@ -65,11 +69,11 @@ function createQuestion() {
         const createQuestion = document.createElement('div');
         
         // clear previous question and answers
-        question.innerHTML = '';
-        answers.innerHTML = ''; 
+        questionRef.innerHTML = '';
+        answersRef.innerHTML = ''; 
 
         createQuestion.textContent = q.question;
-        question.appendChild(createQuestion);
+        questionRef.appendChild(createQuestion);
         
         // display all avilable answer options
         answerOptions.forEach(function(element){
@@ -80,7 +84,7 @@ function createQuestion() {
             createAnswers.classList.add('answer');
             createAnswers.answer = q.correct_answer;
             createAnswers.textContent = element;
-            answers.appendChild(createAnswers);
+            answersRef.appendChild(createAnswers);
             createAnswers.addEventListener('click', newQuestion);
         })
     }
@@ -103,7 +107,7 @@ function newQuestion(element) {
 
 // enables next question button
 function displayNextQuestionBtn() {
-    nextQuestion.style.display = 'block';
+    nextQuestionRef.style.display = 'block';
 }
 
 
@@ -119,11 +123,11 @@ function shuffleAnswers() {
 }
 
 function gameOver() {
-    question.innerHTML = '';
-    answers.innerHTML = ''; 
+    questionRef.innerHTML = '';
+    answersRef.innerHTML = ''; 
     message.textContent = `you answered ${quiz.score} out of ${quiz.totalQuestions} questions correctly`;
-    question.textContent = 'game over';
-    restart.textContent = 'restart';
+    questionRef.textContent = 'game over';
+    restartRef.textContent = 'restart';
 }
 
 function restartQuiz() {
