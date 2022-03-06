@@ -37,21 +37,14 @@ restartRef.addEventListener('click', restartQuiz); // restart the quiz
 function getQuestions(APIURL) {
     fetch(APIURL)
         .then(response => response.json())
-        .then((data) => questionsBank(data))
+        .then((data) => {
+            quiz.totalQuestions = data.results.length;
+            quiz.questionBank = data.results;
+        })
         .then(() => createQuestion());
 }
 
 getQuestions(APIURL)
-
-/** 
-* pass fetched questions to questionBank
-*/
-
-function questionsBank(data) {  
-    quiz.totalQuestions = data.results.length;  
-    quiz.questionBank = data.results;
-    return;
-}
 
 // determine behaviour based on the current question number
 function createQuestion() {
