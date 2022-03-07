@@ -44,20 +44,24 @@ function getQuestions(APIURL) {
         .then(() => createQuestion());
 }
 
-getQuestions(APIURL)
+getQuestions(APIURL);
+
+
 
 // determine behaviour based on the current question number
 function createQuestion() {
     nextQuestionRef.style.display = 'none';
-    endGameRef.style.display = 'none';
-    if(quiz.questionNumber + 1 > quiz.totalQuestions) { // add 1 to questoin number so it starts from number 1 not 0
+    endGameRef.style.display = 'none';   
+
+    if(quiz.questionNumber + 1 > quiz.totalQuestions) { 
         gameOver();
     } else {
         console.log(`question # ${quiz.questionNumber + 1} out of ${quiz.totalQuestions}`); // test log to console
         
         let q = quiz.questionBank[quiz.questionNumber];
-        let answerOptions = [q.correct_answer, ...q.incorrect_answers]; // combine correct and incorrect answers into one array        
-        let shuffleAnswers = answerOptions.sort(() => Math.random - 0.5); // randomise answer order
+        let answerOptions = [q.correct_answer, ...q.incorrect_answers]; // combine correct and incorrect answers into one array  
+        shuffleAnswers(answerOptions);
+        // let shuffleAnswers = answerOptions.sort(() => Math.random - 0.5); // randomise answer order
         
         console.log(shuffleAnswers); // test log to console     
         
@@ -114,8 +118,13 @@ function disableSelection() {
     })
 }
 
-function shuffleAnswers() {
-    
+function shuffleAnswers(data) {
+    const test = data => data.sort(() => 0.5 - Math.random());
+    return test;
+}
+
+function gameOverCheck () {
+    quiz.questionNumber + 1 > quiz.totalQuestions ? true : false; // add 1 to question number so it starts from number 1 not 0
 }
 
 function gameOver() {
@@ -127,5 +136,6 @@ function gameOver() {
 }
 
 function restartQuiz() {
+    
     location.reload();
 }

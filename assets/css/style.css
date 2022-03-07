@@ -33,3 +33,32 @@ body {
 a {
     text-decoration: none;
 }
+
+.hidden {
+    display: none;
+}
+
+.homepage-game-container {
+    display: flex;    
+    flex-direction: column;
+    position: relative;
+    top: 33vh;
+    max-height: 80rem;
+    max-width: 80rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+
+.start-game {
+    position: relative;
+    top: 3rem;
+    border: 1px solid var(--black);
+    border-radius: 1rem 0 1rem 0;
+    width: 8rem;
+    padding: 1rem;
+}
+
