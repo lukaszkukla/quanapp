@@ -89,7 +89,7 @@ function createQuestion() {
 
             // create div for each answer option and append to document
             let createAnswers = document.createElement('div');
-            createAnswers.classList.add('answer');
+            createAnswers.classList.add('answer-option');
             createAnswers.answer = q.correct_answer;
             createAnswers.textContent = element;
             answersRef.appendChild(createAnswers);

@@ -5,6 +5,9 @@
     --white: #fff;
     --black: #000;
     --blue: #2596be;
+    --light-blue: #51abcb;
+    --green: #469b4c;
+    --dark-green: #3c6e57;
 }
 
 /* global styles and resets */
@@ -59,17 +62,34 @@ a {
     border-radius: 1rem 0 1rem 0;
     width: 8rem;
     padding: 1rem;
-    background: #2596be;
+    background: var(--blue)
 }
 
 .start-game:hover {
-    background: #2596be90;
+    background: var(--light-blue);
     transition: background-color 0.3s ease-in-out;
 }
 
 
 .next-question {
-    
+    border-radius: 1rem 0 1rem 0;
+    min-width: 10rem;
+    padding: 1rem;
+    background: var(--blue);
 }
 
+.next-question:hover {
+    background: var(--light-blue);
+    transition: background-color 0.3s ease-in-out;
+}
 
+.answer-option {
+    width: 90vw;
+    padding: 1rem;
+    background: var(--green);
+}
+
+.answer-option:hover {
+    background: var(--dark-green);
+    transition: background-color 0.3s ease-in-out;
+}
