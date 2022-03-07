@@ -4,6 +4,7 @@
 :root {    
     --white: #fff;
     --black: #000;
+    --blue: #2596be;
 }
 
 /* global styles and resets */
@@ -55,10 +56,17 @@ a {
 
 .start-game {
     position: relative;
-    top: 3rem;
-    border: 1px solid var(--black);
+    top: 3rem;    
     border-radius: 1rem 0 1rem 0;
     width: 8rem;
     padding: 1rem;
+    background: #2596be;
 }
+
+.start-game:hover {
+    background: #2596be90;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
 
