@@ -20,16 +20,19 @@ const quiz = {
     questionBank: []
 }; // main game object
 const APIURL = 'https://opentdb.com/api.php?amount=3';
-const message = document.querySelector('.message');
+const startRef = document.querySelector('.homepage-game-container');
+const gameRef = document.querySelector('.game-container');
+const messageRef = document.querySelector('.message');
 const questionRef = document.querySelector('.question');
 const answersRef = document.querySelector('.answers');
 const nextQuestionRef = document.querySelector('.next-question');
 const restartRef = document.querySelector('.restart');
 const endGameRef = document.querySelector('.end-game');
+const startGameRef = document.querySelector('.start-game');
 
 nextQuestionRef.addEventListener('click', createQuestion); // advance to the next quetion
 restartRef.addEventListener('click', restartQuiz); // restart the quiz
-
+startGameRef.addEventListener('click', gameStart);
 
 /** 
 * fetch questions from opentdb.com
@@ -44,7 +47,12 @@ function getQuestions(APIURL) {
         .then(() => createQuestion());
 }
 
-getQuestions(APIURL);
+function gameStart() {
+    gameRef.classList.remove('hide');
+    startRef.classList.add('hide');
+    getQuestions(APIURL);
+}
+
 
 
 
@@ -130,12 +138,12 @@ function gameOverCheck () {
 function gameOver() {
     questionRef.innerHTML = '';
     answersRef.innerHTML = ''; 
-    message.textContent = `you answered ${quiz.score} out of ${quiz.totalQuestions} questions correctly`;
+    messageRef.textContent = `you answered ${quiz.score} out of ${quiz.totalQuestions} questions correctly`;
     questionRef.textContent = 'game over';
     restartRef.textContent = 'restart';
 }
 
-function restartQuiz() {
-    
+function restartQuiz() {  
+      
     location.reload();
 }
