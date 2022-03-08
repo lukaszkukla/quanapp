@@ -35,8 +35,8 @@ restartRef.addEventListener('click', restartQuiz); // restart the quiz
 startGameRef.addEventListener('click', gameStart);
 
 /** 
-* fetch questions from opentdb.com
-*/
+ * fetch questions from opentdb.com
+ */
 function getQuestions(APIURL) {
     fetch(APIURL)
         .then(response => response.json())
@@ -57,33 +57,30 @@ function gameStart() {
 // determine behaviour based on the current question number
 function createQuestion() {
     nextQuestionRef.style.display = 'none';
-    endGameRef.style.display = 'none';   
+    endGameRef.style.display = 'none';
 
-    if(quiz.questionNumber + 1 > quiz.totalQuestions) { 
+    if (quiz.questionNumber + 1 > quiz.totalQuestions) {
         gameOver();
     } else {
-        console.log(`question # ${quiz.questionNumber + 1} out of ${quiz.totalQuestions}`); // test log to console
-        
+
         let q = quiz.questionBank[quiz.questionNumber];
         let answerOptions = [q.correct_answer, ...q.incorrect_answers]; // combine correct and incorrect answers into one array  
         shuffleAnswers(answerOptions);
         // let shuffleAnswers = answerOptions.sort(() => Math.random - 0.5); // randomise answer order
-        
-        console.log(shuffleAnswers); // test log to console     
-        
+
         // create div with current question and append to DOM
         const createQuestion = document.createElement('div');
-        
+
         // clear previous question and answers
         questionRef.innerHTML = '';
-        answersRef.innerHTML = ''; 
+        answersRef.innerHTML = '';
 
+        messageRef.textContent = `your score: ${quiz.score * 10} of ${quiz.totalQuestions * 10}`;
         createQuestion.textContent = q.question;
         questionRef.appendChild(createQuestion);
-        
+
         // display all avilable answer options
-        answerOptions.forEach(function(element){
-            console.log(element); //test log to console
+        answerOptions.forEach(function (element) {
 
             // create div for each answer option and append to document
             let createAnswers = document.createElement('div');
@@ -100,13 +97,11 @@ function createQuestion() {
 function newQuestion(element) {
     disableSelection();
     let selectedAnswer = element.target;
-    if(selectedAnswer.textContent === selectedAnswer.answer) {
-        console.log('correct answer selected');
-        quiz.score++; // add 1 to score
-    } else {
-        console.log('wrong answer selected');
+    if (selectedAnswer.textContent === selectedAnswer.answer) {
+        ++quiz.score; // add 1 to score
+        messageRef.textContent = `your score: ${quiz.score * 10} of ${quiz.totalQuestions * 10}`;
     }
-    console.log(selectedAnswer.textContent);
+
     quiz.questionNumber++; // increase question number index
     displayNextQuestionBtn();
 }
@@ -118,8 +113,8 @@ function displayNextQuestionBtn() {
 
 
 function disableSelection() {
-    const selectedAnswer = document.querySelectorAll('.answer');
-    selectedAnswer.forEach(function(domElement) {
+    const selectedAnswer = document.querySelectorAll('.answer-option');
+    selectedAnswer.forEach(function (domElement) {
         domElement.removeEventListener('click', newQuestion);
     })
 }
@@ -129,20 +124,20 @@ function shuffleAnswers(data) {
     return test;
 }
 
-function gameOverCheck () {
+function gameOverCheck() {
     quiz.questionNumber + 1 > quiz.totalQuestions ? true : false; // add 1 to question number so it starts from number 1 not 0
 }
 
 function gameOver() {
     questionRef.innerHTML = '';
-    answersRef.innerHTML = ''; 
-    messageRef.textContent = `you answered ${quiz.score} out of ${quiz.totalQuestions} questions correctly`;
+    answersRef.innerHTML = '';
+    messageRef.textContent = `you scored ${quiz.score * 10}`;
     questionRef.textContent = 'game over';
     // restartRef.textContent = 'restart';
     restartRef.classList.remove('hide');
 }
 
-function restartQuiz() {  
-      
+function restartQuiz() {
+
     location.reload();
 }
