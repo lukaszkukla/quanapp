@@ -29,6 +29,7 @@ const nextQuestionRef = document.querySelector('.next-question');
 const restartRef = document.querySelector('.restart');
 const endGameRef = document.querySelector('.end-game');
 const startGameRef = document.querySelector('.start-game');
+const sloganRef = document.getElementById('slogan');
 
 nextQuestionRef.addEventListener('click', createQuestion); // advance to the next quetion
 restartRef.addEventListener('click', restartQuiz); // restart the quiz
@@ -51,6 +52,7 @@ function gameStart() {
     gameRef.classList.remove('hide');
     startRef.classList.add('hide');
     restartRef.classList.add('hide');
+    sloganRef.classList.add('hide');
     getQuestions(APIURL);
 }
 
@@ -70,6 +72,7 @@ function createQuestion() {
 
         // create div with current question and append to DOM
         const createQuestion = document.createElement('div');
+        createQuestion.classList.add('question');
 
         // clear previous question and answers
         questionRef.innerHTML = '';

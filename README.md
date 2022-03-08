@@ -223,7 +223,7 @@ work in progress
 ## images
 All images on the webiste were compressed using [TinyPNG](https://tinypng.com/ "tinypng.com for image compression")
 
-![TinyPNG image compression results](docs/screenshots/ "image compression results") - work in progress
+![TinyPNG image compression results](docs/screenshots/background-optimised-tinyPNG.jpg "image compression results")
 
 ## during testing
  work in progress
