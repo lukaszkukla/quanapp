@@ -9,7 +9,7 @@
     --green: #469b4c;
     --green-dark: #3c6e57;
     --coral: #f35c6e;
-    --coral-light: #c73f65;
+    --coral-dark: #c73f65;
 }
 
 /* global styles and resets */
@@ -93,7 +93,7 @@ a {
 }
 
 .restart:hover {
-    background: var(--coral-light);
+    background: var(--coral-dark);
     transition: background-color 0.3s ease-in-out;
 }
 

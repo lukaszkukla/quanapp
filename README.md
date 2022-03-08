@@ -9,6 +9,8 @@ Welcome to quanapp. This is an interactive quiz website built using JavaScript, 
 
 This is a second project on my journey with [code institute](https://codeinstitute.net/ie/) to become a fullstack web developer. It is intended to put my knowledge into practice.
 
+Th
+
 ![responisive design](docs/screenshots/ "responive design for variouse device sizes") - work in progress
 
 # table of contents
@@ -44,10 +46,10 @@ This is a second project on my journey with [code institute](https://codeinstitu
 # ux
 
 ## user goals
-* visually appealing
-* easily navigated around
 * intuitive and responsive to user's interaction
+* easily navigated around
 * responsive design
+* visually appealing
 
 ## user stories
 * as a user, I want to know how the game works (help)
@@ -92,9 +94,19 @@ I used [Font Awesome library](https://fontawesome.com/ "Font Awesome") for extra
 
 ### colors
 
-![color Pallet](docs/screenshots/color-pallette.jpg)
+![color Pallete](docs/screenshots/color-pallette.jpg)
  
- * to be confirmed
+ * black: #000; - main font color
+ * white: #fff; - all buttons font color
+ * game start button colors:
+   * blue: #0476D0; - 
+   * blue-dark: #191970;
+ * answer options button colors:
+   * green: #469b4c;
+   * green-dark: #3c6e57;
+ * game restart button colors:
+   * coral: #f35c6e;
+   * coral-dark: #c73f65;
 
 ### structure
 Website is responsive with min-size of iPhone 4 (320px - wide)
@@ -120,13 +132,13 @@ wireframes are designed for large screen only. I used [Mozilla Firefox](https://
 
 The wireframe of pages below:
 
-* index.html page
+* index.html game homepage
 ![index page](docs/wireframes/ "index page wireframe") - work in progress
 
 \
 &nbsp;
 
-* mobile version of the page
+* desktop version of the page
 ![mobile version](docs/wireframes/ "mobile wireframe") - work in progress
 
 \
@@ -143,10 +155,12 @@ The wireframe of pages below:
 
 Responsive design built with mobile-first approach which adapts to various screen sizes.
 
-* home page hero image
-    - the image spans over the whole height of the screen and gives the user clear message about the intent of the website, thsi works for each screen size
-    - the message over the image invites visitor to think of it as a work of art 
-    - there is a "scroll down" button inviting user to explore more  
+* homepage
+    - presents game logo, slogan and start game button
+    - start button presents user with random multiple choice question fetched from [opentdb.com](https://www.opentdb.com)
+    - each correct question increse score by 10 points
+    - when user selects the answer the 'next question' button reveals to advance to the next challenge
+    - user is presented with total score screen when the last question is answered 
 
     ![game page](docs/screenshots/) - work in progress
 \
@@ -158,11 +172,12 @@ Responsive design built with mobile-first approach which adapts to various scree
 
 ## future developments
 
+* allow user to choose number of questions 
 * allow user to choose question category
 * allow user to choose question difficulty
 * allow user to choose type of question - multiple choice or yes/no
-* allow user to save score to high score list
-* allow user to email achieve score
+* allow user to save score to 'hall of fame' table
+* allow user to email achieved score
 
 \
 &nbsp;

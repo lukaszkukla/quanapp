@@ -114,8 +114,8 @@ function displayNextQuestionBtn() {
 
 function disableSelection() {
     const selectedAnswer = document.querySelectorAll('.answer-option');
-    selectedAnswer.forEach(function (domElement) {
-        domElement.removeEventListener('click', newQuestion);
+    selectedAnswer.forEach(function (answerOption) {
+        answerOption.removeEventListener('click', newQuestion);
     })
 }
 
