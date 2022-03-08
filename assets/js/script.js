@@ -50,11 +50,9 @@ function getQuestions(APIURL) {
 function gameStart() {
     gameRef.classList.remove('hide');
     startRef.classList.add('hide');
+    restartRef.classList.add('hide');
     getQuestions(APIURL);
 }
-
-
-
 
 // determine behaviour based on the current question number
 function createQuestion() {
@@ -140,7 +138,8 @@ function gameOver() {
     answersRef.innerHTML = ''; 
     messageRef.textContent = `you answered ${quiz.score} out of ${quiz.totalQuestions} questions correctly`;
     questionRef.textContent = 'game over';
-    restartRef.textContent = 'restart';
+    // restartRef.textContent = 'restart';
+    restartRef.classList.remove('hide');
 }
 
 function restartQuiz() {  

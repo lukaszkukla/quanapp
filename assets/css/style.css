@@ -4,10 +4,12 @@
 :root {    
     --white: #fff;
     --black: #000;
-    --blue: #2596be;
-    --light-blue: #51abcb;
+    --blue: #0476D0;
+    --blue-dark: #191970;
     --green: #469b4c;
-    --dark-green: #3c6e57;
+    --green-dark: #3c6e57;
+    --coral: #f35c6e;
+    --coral-light: #c73f65;
 }
 
 /* global styles and resets */
@@ -38,6 +40,12 @@ a {
     text-decoration: none;
 }
 
+.wrapper {
+    height: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
 .hide {
     display: none !important;
 }
@@ -46,50 +54,67 @@ a {
     display: flex;    
     flex-direction: column;
     position: relative;
-    top: 33vh;
-    max-height: 80rem;
-    max-width: 80rem;
     padding: 1rem;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 0 auto;    
+    margin: 0 auto;   
 }
 
 .start-game {
+    font-size: 2rem;
     position: relative;
     top: 3rem;    
     border-radius: 1rem 0 1rem 0;
-    width: 8rem;
-    padding: 1rem;
-    background: var(--blue)
+    min-width: 10rem;
+    padding: 1rem 0;
+    color: var(--white);
+    background: var(--blue);
 }
 
 .start-game:hover {
-    background: var(--light-blue);
+    background: var(--blue-dark);
     transition: background-color 0.3s ease-in-out;
 }
 
+.question, .message {
+    font-size: 2rem;
+    padding: 2rem 1rem;
+}
 
-.next-question {
+.restart, .next-question {
     border-radius: 1rem 0 1rem 0;
     min-width: 10rem;
     padding: 1rem;
+    margin: 1rem auto;
+    font-size: 2rem;
+    color: var(--white);
+    background: var(--coral);
+}
+
+.restart:hover {
+    background: var(--coral-light);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.next-question {
     background: var(--blue);
 }
 
 .next-question:hover {
-    background: var(--light-blue);
+    background: var(--blue-dark);
     transition: background-color 0.3s ease-in-out;
 }
 
 .answer-option {
-    width: 90vw;
+    border-radius: 1rem 0 1rem 0;
+    margin-bottom: 1rem;
+    min-width: 25rem;
     padding: 1rem;
     background: var(--green);
 }
 
 .answer-option:hover {
-    background: var(--dark-green);
+    background: var(--green-dark);
     transition: background-color 0.3s ease-in-out;
 }
