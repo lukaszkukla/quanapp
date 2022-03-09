@@ -11,7 +11,7 @@ This is a second project on my journey with [code institute](https://codeinstitu
 
 Th
 
-![responisive design](docs/screenshots/ "responive design for variouse device sizes") - work in progress
+![responisive design](docs/screenshots/responsive-design.jpg "responive design for variouse device sizes")
 
 # table of contents
 

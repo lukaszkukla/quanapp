@@ -104,8 +104,10 @@ function newQuestion(element) {
         ++quiz.score; // add 1 to score
         messageRef.textContent = `your score: ${quiz.score * 10} of ${quiz.totalQuestions * 10}`;
         selectedAnswer.classList.add('correct-answer-selected');
+    } else {
+        selectedAnswer.classList.add('incorrect-answer-selected');
     }
-    selectedAnswer.classList.add('incorrect-answer-selected');
+    
     
     quiz.questionNumber++; // increase question number index
     displayNextQuestionBtn();

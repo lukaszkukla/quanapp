@@ -56,9 +56,9 @@ a {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background: url('../images/question-mark-chalk-blackboard-pexels-pixabay-356079.jpg') no-repeat center center;
+    background: url('../images/free-question-mark-background-vector.jpg') no-repeat center center fixed;
     background-size: cover;
-    opacity: 0.3;
+    opacity: 0.25;
     z-index: -1;
 }
 
@@ -169,7 +169,7 @@ a {
 }
 
 .incorrect-answer-selected {
-    background: var(--coral);
+    background: var(--coral) !important;
 }
 
 @media screen and (min-width: 360px) {
