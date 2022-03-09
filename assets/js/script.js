@@ -103,8 +103,10 @@ function newQuestion(element) {
     if (selectedAnswer.textContent === selectedAnswer.answer) {
         ++quiz.score; // add 1 to score
         messageRef.textContent = `your score: ${quiz.score * 10} of ${quiz.totalQuestions * 10}`;
+        selectedAnswer.classList.add('correct-answer-selected');
     }
-
+    selectedAnswer.classList.add('incorrect-answer-selected');
+    
     quiz.questionNumber++; // increase question number index
     displayNextQuestionBtn();
 }
@@ -119,6 +121,8 @@ function disableSelection() {
     const selectedAnswer = document.querySelectorAll('.answer-option');
     selectedAnswer.forEach(function (answerOption) {
         answerOption.removeEventListener('click', newQuestion);
+        answerOption.classList.add('answer-option-clicked');
+        this.disabled = true;
     })
 }
 

@@ -160,6 +160,18 @@ a {
     transition: background-color 0.3s ease-in-out;
 }
 
+.answer-option-clicked {
+    cursor: not-allowed;
+}
+
+.correct-answer-selected {
+    background: var(--blue) !important;
+}
+
+.incorrect-answer-selected {
+    background: var(--coral);
+}
+
 @media screen and (min-width: 360px) {
 
     .homepage-game-container,

@@ -48,8 +48,7 @@ Th
 ## user goals
 * intuitive and responsive to user's interaction
 * easily navigated around
-* responsive design
-* visually appealing
+* responsive design 
 
 ## user stories
 * as a user, I want to know how the game works (help)
@@ -65,12 +64,13 @@ Th
 ### requirements
 * fetch data from [opentdb.com](https://opentdb.com/) via API
 * randomise questions on reload
-* visually appealing, neat and tidy design
+* visually neat and tidy design
 * responsive design to accommodate modern screen sizes
 
 ### expectations
 * I expect game to function without errors
-* I expect questions to not repeat same questions over and over
+* I expect questions to not repeat over and over
+* I expect answers will be shffled for qustions that might repeat
 * I expect all links to work
 * I expect all external links to open in new tabs
 * I expect fast website load without loss of image quality
@@ -128,18 +128,17 @@ The screen size breakpoints are from [Bootstrap breakpoints](https://getbootstra
 
 # wireframes
 I use [diagrams.net](https://www.diagrams.net/ "diagrams.net") to develop wireframes for the website. 
-wireframes are designed for large screen only. I used [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/browsers/mobile/ "Mozilla Firefox") and [Chrome](https://www.google.com/intl/en_ie/chrome/ "Chrome") developer tools to scale down and adjust design for smaller screens.
+wireframes are designed for mobile device iPhone 4 and scaled upwards. I used [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/browsers/mobile/ "Mozilla Firefox") and [Chrome](https://www.google.com/intl/en_ie/chrome/ "Chrome") developer tools to scale up and adjust design for larger screens.
 
 The wireframe of pages below:
 
-* index.html game homepage
-![index page](docs/wireframes/ "index page wireframe") - work in progress
+* game screen wireframes
 
 \
 &nbsp;
 
-* desktop version of the page
-![mobile version](docs/wireframes/ "mobile wireframe") - work in progress
+![index page](docs/wireframes/quanapp-wireframes.jpg "game screens wireframes")
+
 
 \
 &nbsp;
