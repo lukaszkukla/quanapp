@@ -217,7 +217,15 @@ Responsive design built with mobile-first approach which adapts to various scree
 
 # testing
 
-work in progress
+I feel that I achieved minimum viable (MVP) product that I set from the very beginning. The quiz app is responsive. It is tidy and simple in its design. There is no noise to discrat the user. Each screen was designed with minimalist approach.
+
+Questions repeat very rarely. Answers of repeated questions are shuffled every time quesiton loads.
+
+The biggest challenge in this projcet was the time constraint. With the limited time between study and work my focus was to build MVP that will meet the criteria required by ['code institute'](https://codeinstitute.net/ie/). At the same time it was great challenge to work towards a short deadline and sticking to MVP plan. 
+
+Second biggest challenge was to fetch questions via API from [opentdb](https://opentdb.com/) and manipulate them to achieve desired results through JavaScript code. I used a lot of 'console.log()' function to test for desired results.
+
+The app is working as expected.
 
 ## images
 All images on the webiste were compressed using [TinyPNG](https://tinypng.com/ "tinypng.com for image compression")
@@ -225,7 +233,9 @@ All images on the webiste were compressed using [TinyPNG](https://tinypng.com/ "
 ![TinyPNG image compression results](docs/screenshots/background-optimised-tinyPNG.jpg "image compression results")
 
 ## during testing
- work in progress
+* I corrected code 'on the fly' while building the app
+* I used ['Unicorn Revealer'](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) while styling the app
+* A
 
 * I run my webstie through [W3C Markup Validation Service](https://validator.w3.org/ "Markup validation sevrvice").
 

@@ -118,7 +118,6 @@ function displayNextQuestionBtn() {
     nextQuestionRef.style.display = 'block';
 }
 
-
 function disableSelection() {
     const selectedAnswer = document.querySelectorAll('.answer-option');
     selectedAnswer.forEach(function (answerOption) {
