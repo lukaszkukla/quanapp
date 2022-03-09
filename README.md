@@ -9,8 +9,6 @@ Welcome to quanapp. This is an interactive quiz website built using JavaScript, 
 
 This is a second project on my journey with [code institute](https://codeinstitute.net/ie/) to become a fullstack web developer. It is intended to put my knowledge into practice.
 
-Th
-
 ![responisive design](docs/screenshots/responsive-design.jpg "responive design for variouse device sizes")
 
 # table of contents
@@ -161,7 +159,7 @@ Responsive design built with mobile-first approach which adapts to various scree
     - when user selects the answer the 'next question' button reveals to advance to the next challenge
     - user is presented with total score screen when the last question is answered 
 
-    ![game page](docs/screenshots/) - work in progress
+    ![game page](docs/screenshots/homepage-screen.jpg)
 \
 &nbsp;
 
@@ -204,7 +202,7 @@ Responsive design built with mobile-first approach which adapts to various scree
 * [JSHint JavaSCript Validation Service](https://jshint.com/ "JSHint JavaScript Validator")
 * [autoprefixer](https://autoprefixer.github.io/ "autoprefixer")
 * [lighthouse](https://developers.google.com/web/tools/lighthouse "lighthouse")
-* [Pexels](https://www.pexels.com/ "Pexels")
+* [vecteezy](https://www.vecteezy.com/ "vecteezy")
 * [WebFX](https://www.webfx.com/web-design/color-picker/F1F1F1/ "WebFX color scheme generator")
 * [TinyPNG](https://tinypng.com/ "TinyPNG")
 * [Photoshop](https://www.adobe.com/ie/products/photoshop.html "Adobe Photoshop")
@@ -237,57 +235,46 @@ All images on the webiste were compressed using [TinyPNG](https://tinypng.com/ "
 * I used ['Unicorn Revealer'](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln) while styling the app
 * A
 
-* I run my webstie through [W3C Markup Validation Service](https://validator.w3.org/ "Markup validation sevrvice").
+* I tested my applicatoin with [W3C Markup Validation Service](https://validator.w3.org/ "Markup validation sevrvice").
 
-Initial Markup Test
-![Markup Validation](docs/screenshots/ "validation of the markup of quanapp, initial test") - work in progress
+Markup Validation
 
-Second Markup Test
-![Markup Validation](docs/screenshots/index-page-html-validation-2022-01-24.jpg "validation of the markup of quanapp, second test") - work in progress
+![Markup Validation](docs/screenshots/markup-validation.jpg "validation of the markup of quanapp")
 
-Third Markup Test
-![Markup Validation](docs/screenshots/index-page-html-validation-2022-01-27.jpg "validation of the markup of quanapp, third and final test") - work in progress
+* Subsequently validated my css styles using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS Validation Service").
 
-* Subsequently I ran validation of my css styles using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS Validation Service"). Which to my surprise did not return any errors.
+CSS Validation
 
-Initial CSS Test
-![CSS Validation](docs/screenshots/portfolio-page-html-validation-2022-01-24.jpg "validation of the CSS of quanapp, initial test") - work in progress
+![CSS Validation](docs/screenshots/css-validation.jpg "validation of the CSS of quanapp")
 
- * Accessibility test was pushed through [experte.com](https://www.experte.com/accessibility "accessibility testing"). - work in progress
+JavaScript Validatoin
 
- Initail Accessibility Test
-![Accessibility Test Initial](docs/screenshots/ "accessibility test of quanapp, initial test") - work in progress
+![JavaScript Validation](docs/screenshots/js-validation.jpg "validation of the JavaScript code of quanapp")
 
- Second Accessibility Test
-![Accessibility Test Second](docs/screenshots/ "accessibility test of quanapp, second test") - work in progress
+ * Accessibility test was done via [experte.com](https://www.experte.com/accessibility "accessibility testing").
+
+ Accessibility Validation
+
+![Accessibility Test Initial](docs/screenshots/accessibility-validation.jpg "accessibility test of quanapp").
 
 * Final testing was performed by Google's [Lighthouse](https://developers.google.com/web/tools/lighthouse "lighthouse")
 
-desktop size index.html
-![lighthouse test desktop](docs/screenshots/ "lighthouse desktop test of index.html") - work in progress
+mobile test
 
-desktop size portfolio.html
-![lighthouse test desktop](docs/screenshots/ "lighthouse desktop test of portfolio.html") - work in progress
-
-desktop size thanks.html
-![lighthouse test desktop](docs/screenshots/ "lighthouse desktop test of thanks.html") - work in progress
+![lighthouse test mobile](docs/screenshots/lighthouse-mobile-validation.jpg "lighthouse mobile test")
 
 \
 &nbsp;
-\
-mobile size index.html
-![lighthouse test mobile](docs/screenshots/ "lighthouse mobile test of index.html") - work in progress
 
-mobile size portfolio.html
-![lighthouse test mobile](docs/screenshots/ "lighthouse mobile test of portfolio.html") - work in progress
+desktop test
 
-mobile size thanks.html
-![lighthouse test mobile](docs/screenshots/ "lighthouse mobile test of thanks.html") - work in progress
+![lighthouse test desktop](docs/screenshots/lighthouse-desktop-validation.jpg "lighthouse desktop test")
+
 \
 &nbsp;
 
 * Website was also tested on physical mobile devices:
-    * Galaxy Tab A On testing on a physical mobile devices
+    * Galaxy Tab A
     * Google Pixel 4XL
     * Iphone XR
     * iPad 6th generation 2018
@@ -324,7 +311,7 @@ The project was deployed on GitHub pages after initial commits using following p
 * Then select 'Pages' on the side navigation
 * Select the 'None' dropdown, and then click 'master'
 * Click on the 'Save' button.
-* Now the website is now live on https://lukaszkukla.github.io/qubartstudios/
+* Now the website is now live on https://lukaszkukla.github.io/quanapp/
 * If any changes are required, they can be done, committed and pushed to GitHub and the changes will be updated
 
 # cloning repository
