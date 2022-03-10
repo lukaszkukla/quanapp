@@ -107,8 +107,8 @@ function newQuestion(element) {
     } else {
         selectedAnswer.classList.add('incorrect-answer-selected');
     }
-    
-    
+
+
     quiz.questionNumber++; // increase question number index
     displayNextQuestionBtn();
 }
