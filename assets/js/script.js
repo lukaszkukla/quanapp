@@ -19,7 +19,7 @@ const quiz = {
     score: 0,
     questionBank: []
 }; // main game object
-const APIURL = 'https://opentdb.com/api.php?amount=3';
+const APIURL = 'https://opentdb.com/api.php?amount=15';
 const startRef = document.querySelector('.homepage-game-container');
 const gameRef = document.querySelector('.game-container');
 const messageRef = document.querySelector('.message');
@@ -48,6 +48,9 @@ function getQuestions(APIURL) {
         .then(() => createQuestion());
 }
 
+/**
+ * show main game screen and question
+ */
 function gameStart() {
     gameRef.classList.remove('hide');
     startRef.classList.add('hide');
@@ -67,8 +70,8 @@ function createQuestion() {
 
         let q = quiz.questionBank[quiz.questionNumber];
         let answerOptions = [q.correct_answer, ...q.incorrect_answers]; // combine correct and incorrect answers into one array  
-        shuffleAnswers(answerOptions);
-        // let shuffleAnswers = answerOptions.sort(() => Math.random - 0.5); // randomise answer order
+        let shuffleAnswers = answerOptions.sort(() => 0.5 - Math.random()); // randomise answer order
+        
 
         // create div with current question and append to DOM
         const createQuestion = document.createElement('div');
@@ -82,8 +85,10 @@ function createQuestion() {
         createQuestion.textContent = q.question;
         questionRef.appendChild(createQuestion);
 
-        // display all avilable answer options
-        answerOptions.forEach(function (element) {
+        /**
+         * display available answer opitons in the DOM
+         */
+        shuffleAnswers.forEach(function (element) {
 
             // create div for each answer option and append to document
             let createAnswers = document.createElement('div');
@@ -96,7 +101,9 @@ function createQuestion() {
     }
 }
 
-// allow to select one of the available answers
+/**
+ * check if correct answer selected, display next question button
+ */
 function newQuestion(element) {
     disableSelection();
     let selectedAnswer = element.target;
@@ -107,17 +114,20 @@ function newQuestion(element) {
     } else {
         selectedAnswer.classList.add('incorrect-answer-selected');
     }
-
-
     quiz.questionNumber++; // increase question number index
     displayNextQuestionBtn();
 }
 
-// enables next question button
+/**
+ * display next question button
+ */
 function displayNextQuestionBtn() {
     nextQuestionRef.style.display = 'block';
 }
 
+/**
+ * disable all other answer options upon selection
+ */
 function disableSelection() {
     const selectedAnswer = document.querySelectorAll('.answer-option');
     selectedAnswer.forEach(function (answerOption) {
@@ -127,25 +137,35 @@ function disableSelection() {
     })
 }
 
+/**
+ * shuffle answer options
+ */
 function shuffleAnswers(data) {
-    const test = data => data.sort(() => 0.5 - Math.random());
-    return test;
+    let shuffleAnswers = data.sort(() => 0.5 - Math.random()); // randomise answer order
+    return shuffleAnswers;
 }
 
+/**
+ * check if last question answered
+ */
 function gameOverCheck() {
     quiz.questionNumber + 1 > quiz.totalQuestions ? true : false; // add 1 to question number so it starts from number 1 not 0
 }
 
+/**
+ * show score and restart button at game end
+ */
 function gameOver() {
     questionRef.innerHTML = '';
     answersRef.innerHTML = '';
     messageRef.textContent = `you scored ${quiz.score * 10}`;
     questionRef.textContent = 'game over';
-    // restartRef.textContent = 'restart';
     restartRef.classList.remove('hide');
 }
 
+/**
+ * restart game
+ */
 function restartQuiz() {
-
     location.reload();
 }

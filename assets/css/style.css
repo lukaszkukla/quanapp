@@ -33,7 +33,7 @@ body {
 
 /* default font size 1.6rem = 16px */
 body {
-    font-size: 1.6rem;   
+    font-size: 1.6rem;
 }
 
 a {
@@ -49,7 +49,7 @@ a {
 .hero {
     content: "";
     width: 100%;
-    height: 100%;    
+    height: 100%;
     background: url('../images/free-question-mark-background-vector.jpg') no-repeat center center fixed;
     background-size: cover;
     z-index: -1;
@@ -198,7 +198,8 @@ a {
         width: 60rem;
     }
 
-    .question, .message {
+    .question,
+    .message {
         font-size: 2rem;
         padding: 2rem;
     }
