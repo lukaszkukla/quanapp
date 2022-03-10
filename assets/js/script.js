@@ -14,12 +14,8 @@
 
  */
 
-const quiz = {
-    questionNumber: 0,
-    score: 0,
-    questionBank: []
-}; // main game object
-const APIURL = 'https://opentdb.com/api.php?amount=15';
+
+const APIURL = 'https://opentdb.com/api.php?amount=10';
 const startRef = document.querySelector('.homepage-game-container');
 const gameRef = document.querySelector('.game-container');
 const messageRef = document.querySelector('.message');
@@ -30,8 +26,13 @@ const restartRef = document.querySelector('.restart');
 const endGameRef = document.querySelector('.end-game');
 const startGameRef = document.querySelector('.start-game');
 const sloganRef = document.getElementById('slogan');
+const quiz = {
+    questionNumber: 0,
+    score: 0,
+    questionBank: []
+};
 
-nextQuestionRef.addEventListener('click', createQuestion); // advance to the next quetion
+nextQuestionRef.addEventListener('click', checkIfLastQuestion); // advance to the next quetion
 restartRef.addEventListener('click', restartQuiz); // restart the quiz
 startGameRef.addEventListener('click', gameStart);
 
@@ -45,7 +46,7 @@ function getQuestions(APIURL) {
             quiz.totalQuestions = data.results.length;
             quiz.questionBank = data.results;
         })
-        .then(() => createQuestion());
+        .then(() => checkIfLastQuestion());
 }
 
 /**
@@ -60,45 +61,63 @@ function gameStart() {
 }
 
 // determine behaviour based on the current question number
-function createQuestion() {
+function checkIfLastQuestion() {
     nextQuestionRef.style.display = 'none';
     endGameRef.style.display = 'none';
+    console.log('question number ', quiz.questionNumber + 1);
 
-    if (quiz.questionNumber + 1 > quiz.totalQuestions) {
-        gameOver();
-    } else {
+    (quiz.questionNumber + 1 > quiz.totalQuestions) ? gameOver(): createQuestion();
+}
 
-        let q = quiz.questionBank[quiz.questionNumber];
-        let answerOptions = [q.correct_answer, ...q.incorrect_answers]; // combine correct and incorrect answers into one array  
-        let shuffleAnswers = answerOptions.sort(() => 0.5 - Math.random()); // randomise answer order
-        
-
-        // create div with current question and append to DOM
-        const createQuestion = document.createElement('div');
-        createQuestion.classList.add('question');
-
-        // clear previous question and answers
-        questionRef.innerHTML = '';
-        answersRef.innerHTML = '';
-
-        messageRef.textContent = `your score: ${quiz.score * 10} of ${quiz.totalQuestions * 10}`;
-        createQuestion.textContent = q.question;
-        questionRef.appendChild(createQuestion);
-
-        /**
-         * display available answer opitons in the DOM
-         */
-        shuffleAnswers.forEach(function (element) {
-
-            // create div for each answer option and append to document
-            let createAnswers = document.createElement('div');
-            createAnswers.classList.add('answer-option');
-            createAnswers.answer = q.correct_answer;
-            createAnswers.textContent = element;
-            answersRef.appendChild(createAnswers);
-            createAnswers.addEventListener('click', newQuestion);
-        })
+function shuffle(answers) {
+    for (let i = answers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [answers[i], answers[j]] = [answers[j], answers[i]];
     }
+    return answers;
+}
+
+
+/**
+ * 
+ */
+function createQuestion() {
+    const question = quiz.questionBank[quiz.questionNumber];
+    let answerOptions = [question.correct_answer, ...question.incorrect_answers]; // combine correct and incorrect answers into one array  
+    let shuffleAnswers = shuffle(answerOptions)
+
+    // create div with current question and append to DOM
+    const createQuestionRef = document.createElement('div');
+    createQuestionRef.classList.add('question');
+
+    // clear previous question and answers
+    questionRef.innerHTML = '';
+    answersRef.innerHTML = '';
+
+    displayAnswers(shuffleAnswers, question);
+
+    displayScore();
+    createQuestionRef.textContent = question.question;
+    questionRef.appendChild(createQuestionRef);
+}
+
+function displayScore() {
+    messageRef.textContent = `your score: ${quiz.score * 10} of ${quiz.totalQuestions * 10}`;
+}
+
+function displayAnswers(answers, question) {
+    // display available answer opitons in the DOM
+    answers.forEach((answer) => {
+
+        // create div for each answer option and append to document
+        let createAnswers = document.createElement('div');
+        createAnswers.classList.add('answer-option');
+        createAnswers.answer = question.correct_answer;
+        createAnswers.textContent = answer;
+        answersRef.appendChild(createAnswers);
+        createAnswers.addEventListener('click', newQuestion);
+    })
+
 }
 
 /**
