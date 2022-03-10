@@ -350,7 +350,7 @@ The project can be copied or cloned using following steps
 
 * kasia_ci from [code institute](codeinstitute.com) - for keeping up the spirit and leading weekly standups
 
-* [jeff](https://stackoverflow.com/users/353278/jeff) - for the modern version of Fisher-Yates shuffle algorithm
+* [jeff](https://stackoverflow.com/users/353278/jeff) - for the modern version of Fisher-Yates ['shuffle algorithm'](https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array)
 \
 &nbsp;
 [back to top](#table-of-contents)
