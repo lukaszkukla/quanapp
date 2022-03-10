@@ -1,20 +1,3 @@
-/** 
-
-1. fetch question bank from url
-2. return data in json format
-3. pull first question from question bank
-4. pull answers related to question
-5. shuffle answers order
-6. click on of the answer options
-7. check if correct or not correct
-8. increse score if correct
-9. advance to the next question
-10. show total score on last question
-11. show restart button
-
- */
-
-
 const APIURL = 'https://opentdb.com/api.php?amount=10';
 const startRef = document.querySelector('.homepage-game-container');
 const gameRef = document.querySelector('.game-container');
@@ -23,7 +6,6 @@ const questionRef = document.querySelector('.question');
 const answersRef = document.querySelector('.answers');
 const nextQuestionRef = document.querySelector('.next-question');
 const restartRef = document.querySelector('.restart');
-const endGameRef = document.querySelector('.end-game');
 const startGameRef = document.querySelector('.start-game');
 const sloganRef = document.getElementById('slogan');
 const quiz = {
@@ -32,8 +14,8 @@ const quiz = {
     questionBank: []
 };
 
-nextQuestionRef.addEventListener('click', checkIfLastQuestion); // advance to the next quetion
-restartRef.addEventListener('click', restartQuiz); // restart the quiz
+nextQuestionRef.addEventListener('click', checkIfLastQuestion);
+restartRef.addEventListener('click', restartQuiz); 
 startGameRef.addEventListener('click', gameStart);
 
 /** 
@@ -60,15 +42,16 @@ function gameStart() {
     getQuestions(APIURL);
 }
 
-// determine behaviour based on the current question number
+/**
+ * check if it is the end of questions
+ */ 
 function checkIfLastQuestion() {
     nextQuestionRef.style.display = 'none';
-    endGameRef.style.display = 'none';
-    console.log('question number ', quiz.questionNumber + 1);
 
     (quiz.questionNumber + 1 > quiz.totalQuestions) ? gameOver(): createQuestion();
 }
 
+// algorithm borrowed from https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
 function shuffle(answers) {
     for (let i = answers.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -77,9 +60,8 @@ function shuffle(answers) {
     return answers;
 }
 
-
 /**
- * 
+ * creates question and corresponding answers
  */
 function createQuestion() {
     const question = quiz.questionBank[quiz.questionNumber];
@@ -117,15 +99,14 @@ function displayAnswers(answers, question) {
         answersRef.appendChild(createAnswers);
         createAnswers.addEventListener('click', newQuestion);
     })
-
 }
 
 /**
  * check if correct answer selected, display next question button
  */
-function newQuestion(element) {
+function newQuestion(answer) {
     disableSelection();
-    let selectedAnswer = element.target;
+    let selectedAnswer = answer.target;
     if (selectedAnswer.textContent === selectedAnswer.answer) {
         ++quiz.score; // add 1 to score
         messageRef.textContent = `your score: ${quiz.score * 10} of ${quiz.totalQuestions * 10}`;
@@ -157,14 +138,6 @@ function disableSelection() {
 }
 
 /**
- * shuffle answer options
- */
-function shuffleAnswers(data) {
-    let shuffleAnswers = data.sort(() => 0.5 - Math.random()); // randomise answer order
-    return shuffleAnswers;
-}
-
-/**
  * check if last question answered
  */
 function gameOverCheck() {
@@ -183,7 +156,7 @@ function gameOver() {
 }
 
 /**
- * restart game
+ * restart quiz
  */
 function restartQuiz() {
     location.reload();

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200;1,400&display=swap');
 
 /* variables */
@@ -19,6 +26,7 @@
     padding: 0;
     margin: 0;
     border: none;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
@@ -77,11 +85,17 @@ a {
 .game-container {
     /* display: flex;    
     flex-direction: column; */
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: auto;
     grid-template-columns: auto;
     position: relative;
     padding: 1rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     text-align: center;
     margin: 0 auto;
@@ -100,6 +114,8 @@ a {
 
 .start-game:hover {
     background: var(--blue-dark);
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -120,6 +136,8 @@ a {
 
 .restart:hover {
     background: var(--coral-dark);
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -129,22 +147,34 @@ a {
 
 .next-question:hover {
     background: var(--blue-dark);
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out;
 }
 
 .answers {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: auto;
     grid-template-columns: auto;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
     column-gap: 1rem;
     row-gap: 1rem;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
 .answers-landscape {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: auto 1rem auto;
     grid-template-columns: auto auto;
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
     column-gap: 1rem;
     row-gap: 1rem;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -158,6 +188,8 @@ a {
 
 .answer-option:hover {
     background: var(--green-dark);
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out;
 }
 

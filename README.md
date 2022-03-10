@@ -349,6 +349,8 @@ The project can be copied or cloned using following steps
 * peer community on [code institute](codeinstitute.com) slack channel
 
 * kasia_ci from [code institute](codeinstitute.com) - for keeping up the spirit and leading weekly standups
+
+* [jeff](https://stackoverflow.com/users/353278/jeff) - for the moder version of Fisher-Yates shuffle algorithm
 \
 &nbsp;
 [back to top](#table-of-contents)
